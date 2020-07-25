@@ -1,0 +1,9 @@
+.idea
+venv
+.ipynb_checkpoints
+SA.ipynb
+old.py
+data.ipynb
+api.json
+service_account.json
+

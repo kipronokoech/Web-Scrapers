@@ -16,6 +16,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
 
+
 def fetch_image_urls_util(url,driver_path):
     images = []
     # Open main window with URL A
@@ -139,13 +140,15 @@ def persist_image(folder_path:str,url:str):
         
   
     
-def search_and_download(search_term:str,driver_path:str,target_path='./data',number_images=50):
+def search_and_download(search_term:str,driver_path:str=None,target_path='./data',number_images=100):
     target_folder = os.path.join(target_path,'_'.join(search_term.lower().split(' ')))
 
     if not os.path.exists(target_folder):
         os.makedirs(target_folder)
-
-    with webdriver.Chrome(executable_path=driver_path) as wd:
+    op = webdriver.ChromeOptions()
+    op.add_argument('headless')
+    driver = webdriver.Chrome(driver_path)
+    with driver as wd:
         res = fetch_image_urls(search_term, number_images, wd=wd, sleep_between_interactions=0.5,driver_path= driver_path,target_path= target_path,search_term=search_term)
     try:    
         for elem in res:
@@ -161,8 +164,10 @@ import hashlib
 import os
 from selenium import webdriver
 
-
-query = ["Uhuru Kenyatta","Donald Trump","Cyril Ramaphosa","John Magufuli"]
+#query = ["Uhuru Kenyatta","Donald Trump","Cyril Ramaphosa","John Magufuli"]
+#query = ["Donald Trump","Cyril Ramaphosa","John Magufuli"]
+# query = ["Cyril Ramaphosa","John Magufuli"]
+query = ["John Magufuli"]
 
 for q in query:
     search_and_download(q,"/home/kiprono/chromedriver")

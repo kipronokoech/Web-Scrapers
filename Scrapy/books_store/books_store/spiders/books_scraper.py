@@ -7,8 +7,9 @@ class BooksSpider(scrapy.Spider):
 	# you must have the following two class variables: name and start_urls. Just as is
 	# start_urls must be a list even if we have one website to scrape
 	name = "books"
+	page_number = 1
 	start_urls = [
-	"http://books.toscrape.com/catalogue/category/books_1/index.html"
+	"http://books.toscrape.com/catalogue/category/books_1/page-{}.html".format(page_number)
 	]
 	# name the function as parse and it should have response parameter
 	# response will hold the entire source code for the page
@@ -28,4 +29,10 @@ class BooksSpider(scrapy.Spider):
 			items["availability"] = availability
 
 			yield items
+
+		# next_page = response.css(".next a::attr(href)").get()
+		BooksSpider.page_number = BooksSpider.page_number + 1
+		next_page = "http://books.toscrape.com/catalogue/category/books_1/page-{}.html".format(BooksSpider.page_number)
+		if next_page <=50: #something not right here
+			yield response.follow(next_page,callback=self.parse)
 

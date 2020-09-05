@@ -24,36 +24,22 @@ class AmazonSpider(scrapy.Spider):
 		# print(all_cards)
 		for index,card in enumerate(all_cards):
 			# print(index)
-			product_asin = card.css("div.sg-col-4-of-24::attr(data-asin)").extract()
+			product_asin = card.css("div.sg-col-4-of-24::attr(data-asin)").extract_first()
 			if not product_asin:
 				continue
-			product_name = card.css("h2 span::text").extract()
+			product_name = card.css("h2 span::text").extract_first()
 			print(100*"---")
 			stars_raw, product_reviews = card.css("div.a-row span a span::text").extract()
 			product_stars = stars_raw.split(" ")[0]
-			product_price = card.css("div.a-row span.a-price span.a-offscreen").css("::text").extract()
-			# 	product_name = card.css("h2").css("span::text").extract()
-			# 	print(index,product_name)
-			# for index,card in enumerate(all_cards):
-
-			# 	product_asin = card.css("span::attr(name)").extract()
-
-			# 	if not product_asin:
-			# 		continue
-
-			# 	product_name = card.css("h2::attr(data-attribute)").extract()
-			# 	product_stars = card.css("span.a-icon-alt::text").extract()
-			# 	product_stars = re.findall("(\d*\.?\d+)",product_stars[0])[0]
-			# 	product_reviews = card.css("span+ .a-text-normal").css("::text").extract()
-			# 	product_price = card.css(".a-spacing-mini .a-spacing-none:nth-child(1) .a-text-normal span")\
-			# 	.css("::text").extract_first()
-			# 	image_link  = card.css(".cfMarker::attr(src)").extract()
+			product_price = card.css("div.a-row span.a-price span.a-offscreen").css("::text").extract_first()
+			image_link = card.css(".s-image-square-aspect .s-image").css("::attr(src)").extract_first()
 
 			item["product_asin"] = product_asin
 			item["product_name"] = product_name
 			item["product_stars"] = product_stars
 			item["product_reviews"] = product_reviews
 			item["product_price"] = product_price
+			item["image_link"] = image_link
 			# 	item["image_link"] = image_link
 	 			
 			yield item
@@ -62,5 +48,5 @@ class AmazonSpider(scrapy.Spider):
 	# 	next_page = "https://www.amazon.com/Laptops-Computers-Tablets/s?rh=n%3A565108&page={}"\
 	# .format(AmazonSpider.page_number)
 		AmazonSpider.page_number = AmazonSpider.page_number + 1
-		if AmazonSpider.page_number <= 3:
+		if AmazonSpider.page_number <= 230:
 			yield response.follow(next_page,callback=self.parse)

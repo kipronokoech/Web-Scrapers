@@ -13,3 +13,33 @@ Findings:
 - The section looking like the item name is not actual the full item name.
 - The very last section appearance is based in the sorting selection
 - {https://www.amazon.com -predictable}/{a section of item name -not predictable}/{product-reviews -predictable}/{ASIN number -predictable}/{determined by sort selection-\ we dont have to worry about it anyway.}
+
+
+## Keyword search
+- Understand the behaviour of the link for any given 
+
+https://www.amazon.com/s?k=atomic+habits&ref=nb_sb_noss_1     (searched "atomic habits")
+https://www.amazon.com/s?k=laptops&ref=nb_sb_noss_2 	(searched "laptops")
+https://www.amazon.com/s?k=huawei&ref=nb_sb_noss_2 (searched "huawei")
+https://www.amazon.com/s?k=tv&ref=nb_sb_noss_1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

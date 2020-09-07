@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for amazon project
+# Scrapy settings for AMZcockpit project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -10,41 +10,32 @@
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 import random
 
-BOT_NAME = 'amazon'
+BOT_NAME = 'AMZcockpit'
 
-SPIDER_MODULES = ['amazon.spiders']
-NEWSPIDER_MODULE = 'amazon.spiders'
+SPIDER_MODULES = ['AMZcockpit.spiders']
+NEWSPIDER_MODULE = 'AMZcockpit.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'amazon (+http://www.yourdomain.com)'
-USER_AGENT = "Chromium/83.0.4103.116"
-# USER_AGENT = "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.120 Mobile Safari/537.36 Chromium/83.0.4103.116"
-# USER_AGENTS = ["Googlebot/2.1 (+http://www.google.com/bot.html)",
-# "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.96 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)",
-# "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)",
-# 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36']
-# USER_AGENT = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
-#USER_AGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+#USER_AGENT = 'AMZcockpit (+http://www.yourdomain.com)'
+# USER_AGENT = "Chromium/83.0.4103.116"
+
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
 
-# CRAWLERA_ENABLED = True
-# CRAWLERA_APIKEY = 'apikey'
-
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-CONCURRENT_REQUESTS = 16
+CONCURRENT_REQUESTS = 32
 
 # Configure a delay for requests for the same website (default: 0)
 # See https://doc.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-# DOWNLOAD_DELAY = 3
+#DOWNLOAD_DELAY = 3
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
 
 # Disable cookies (enabled by default)
-#COOKIES_ENABLED = False
+COOKIES_ENABLED = False
 
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
@@ -58,24 +49,20 @@ CONCURRENT_REQUESTS = 16
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'amazon.middlewares.AmazonSpiderMiddleware': 543,
+#    'AMZcockpit.middlewares.AmzcockpitSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'amazon.middlewares.AmazonDownloaderMiddleware': 543,
+#    'AMZcockpit.middlewares.AmzcockpitDownloaderMiddleware': 543,
 #}
+DOWNLOADER_MIDDLEWARES = {
+    'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
+    'random_useragent.RandomUserAgentMiddleware': 400
+}
 
-# DOWNLOADER_MIDDLEWARES = {
-#     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
-#     'scrapy_user_agents.middlewares.RandomUserAgentMiddleware': 400,
-# }
-# DOWNLOADER_MIDDLEWARES = {
-#     'scrapy_crawlera.CrawleraMiddleware': 610
-# }
-
-
+USER_AGENT_LIST = "./useragents.txt"
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html
 #EXTENSIONS = {
@@ -84,9 +71,9 @@ CONCURRENT_REQUESTS = 16
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-   'amazon.pipelines.AmazonPipeline': 300,
-}
+#ITEM_PIPELINES = {
+#    'AMZcockpit.pipelines.AmzcockpitPipeline': 300,
+#}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html

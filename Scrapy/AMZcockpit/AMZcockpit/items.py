@@ -8,15 +8,14 @@
 import scrapy
 
 
-class AmazonItem(scrapy.Item):
+class AmzcockpitItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    product_name = scrapy.Field()
+    keyword = scrapy.Field()
     product_asin = scrapy.Field()
-    product_stars = scrapy.Field()
-    product_reviews = scrapy.Field()
-    product_price = scrapy.Field()
-    image_link = scrapy.Field()
+    sponsored  = scrapy.Field()
+    inpage_rank = scrapy.Field()
+    overall_rank = scrapy.Field()
+    page_number = scrapy.Field()
 
-class KeywordItem(scrapy.Item):
-	product_ASIN =  scrapy.Field()
+

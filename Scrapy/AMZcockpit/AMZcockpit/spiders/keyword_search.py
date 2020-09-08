@@ -45,7 +45,6 @@ class KeywordSearchSpider(scrapy.Spider):
             asin_ = result.css('::attr(data-asin)').extract_first()
             if not asin_:
                 continue
-            print(asin_,self.asin,asin_ == self.asin)
             if link is not None:
                 if link.startswith('/gp/slredirect'):
                     self.sponsored = True
@@ -60,12 +59,10 @@ class KeywordSearchSpider(scrapy.Spider):
                         item["page_number"] = KeywordSearchSpider.page_number
                         item["sponsored"] = "Yes"
                         yield item
-
                     else:
                         continue
             else:
             	continue
-
             if link is None or not link.startswith('/gp/slredirect'):
                 self.sponsored = False
                 seo = seo + 1 + rank_offset

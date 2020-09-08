@@ -13,9 +13,7 @@ class AmzcockpitItem(scrapy.Item):
     # name = scrapy.Field()
     keyword = scrapy.Field()
     product_asin = scrapy.Field()
-    sponsored  = scrapy.Field()
-    inpage_rank = scrapy.Field()
     overall_rank = scrapy.Field()
+    inpage_rank = scrapy.Field()
     page_number = scrapy.Field()
-
-
+    sponsored  = scrapy.Field()

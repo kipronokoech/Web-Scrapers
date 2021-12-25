@@ -25,12 +25,12 @@ should be a useful guide to go through this notebook.
 
 <table style="width:100%">
   <tr>
-    <th><img src="covid-19-data/assets/images/worldometer.png" width=100% height=auto></th>
+    <th><img src="Worldometer (covid-19-data)/assets/images/worldometer.png" width=100% height=auto></th>
   </tr>
 </table>
 <table style="width:100%">
   <tr>
-    <th><img src="covid-19-data/assets/images/scraped.png" width=100% height=auto</th>
+    <th><img src="Worldometer (covid-19-data)/assets/images/scraped.png" width=100% height=auto</th>
   </tr>
 </table>
 

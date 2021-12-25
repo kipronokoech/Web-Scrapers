@@ -33,8 +33,10 @@ time.sleep(10)
 
 # get details of one laptop
 page_content = driver.find_elements_by_class_name("el-col-6")
+print(len(page_content))
 print(page_content[30].find_element_by_class_name("wordwrap").text)
 print(page_content[30].find_element_by_class_name("wordwrap-price").text)
+quit()
 prices = page_content[30].find_element_by_class_name("wordwrap-price")
 price_before_discount = prices.find_elements_by_tag_name("span")[1].text
 price_after_discount = prices.find_elements_by_tag_name("span")[0].text

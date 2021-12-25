@@ -47,8 +47,8 @@ Useful link about crontab in Linux: [link](https://opensource.com/article/17/11/
 
 Stay Safe!
 
-# [Video Site Data Scraper](https://github.com/kipronokoech/Web-Scraper/tree/master/Internet-Archive)
+# [Video Site Data Scraper](https://github.com/kipronokoech/Web-Scraper/tree/master/Internet-Archive (Videos))
 
-# [GDP Data Scraper](https://github.com/kipronokoech/Web-Scraper/tree/master/gdp-data) 
-# [Reviews Scraper](https://github.com/kipronokoech/Web-Scraper/tree/master/reviews-collection)
+# [GDP Data Scraper](https://github.com/kipronokoech/Web-Scraper/tree/master/Wikipedia(gdp-data)) 
+# [Reviews Scraper](https://github.com/kipronokoech/Web-Scraper/tree/master/TrustPilot)
 
